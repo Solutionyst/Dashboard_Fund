@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import django_heroku
+import logging
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fb@l)q)wy)6cw^v_k6(p&4d$5^(5h4*4^k$29sr6!4@3_ww&_u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['solutionyst.herokuapp.com']
+ALLOWED_HOSTS = ['solutionyst.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,11 @@ WSGI_APPLICATION = 'Dashboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ciba',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'MUshroom1!1!',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
