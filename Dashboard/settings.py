@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
@@ -83,11 +84,11 @@ WSGI_APPLICATION = 'Dashboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'MUshroom1!1!',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'd9vptibjj1p577',
+        'USER': 'ulctkrdxjkvelz',
+        'PASSWORD': '9571087bb11d56b5d9c1ed0fe04bb1e44e30a0a26e87a320a85e93a1d6cb3912',
+        'HOST': 'ec2-54-247-96-153.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

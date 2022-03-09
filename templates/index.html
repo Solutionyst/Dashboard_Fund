@@ -3,7 +3,7 @@
 
 {% extends "includes/base.html" %}
 {% load static %}
-
+{% load humanize %}
 <!-- Specific CSS Plugins goes HERE  -->
 {% block css_plugins %}
 
@@ -32,17 +32,17 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Ownership Denominators</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="run_script"<a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                <class="fas fa-download fa-sm text-white-50"></i> Run Update</a></form>
                     </div>
                         <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Example Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <p class="mb-4">The below table shows all of the current Denominator Data held on the platform</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -58,6 +58,9 @@
                                             <th>Company Name</th>
                                             <th>Country</th>
                                             <th>Indice</th>
+                                            <th>Shares Issued</th>
+                                            <th>Shares Outstanding</th>
+                                            <th>Treasury Shares</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,6 +70,9 @@
                                         <th>{{ position.company_name }}</th>
                                         <th>{{ position.country }}</th>
                                         <th>{{ position.indice }}</th>
+                                        <th>{{ position.shares_issued|floatformat:0|intcomma }}</th>
+                                        <th>{{ position.shares_outstanding|floatformat:0|intcomma }}</th>
+                                        <th>{{ position.treasury_shares|floatformat:0|intcomma }}</th>
                                     </tr>
                                     {% endfor %}
                                     </tbody>

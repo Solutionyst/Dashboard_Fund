@@ -5,6 +5,9 @@ class position(models.Model):
     company_name = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     indice = models.CharField(max_length=100)
+    shares_issued = models.BigIntegerField(default=0)
+    shares_outstanding = models.BigIntegerField(default=0)
+    treasury_shares = models.BigIntegerField(default=0)
 
     class Meta:
         verbose_name = 'Position'
