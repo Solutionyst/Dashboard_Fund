@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "includes/base.html" %}
+{% load static %}
+{% load humanize %}
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}
+
+{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+
+{% block content %}
+
+	<!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Delete Position from Database?</h1>
+                    </div>
+
+                <div class="card card-body border-light shadow-sm table-wrapper table-responsive .p-3">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <p>Are you sure you want to delete "{{position_delete}}"?</p>
+                        <a href="{% url 'Dashboard' %}" class="btn btn-outline-dark btn-round">Go Back?</a>
+                    <input type="submit" value="Confirm" class="btn btn-outline-success btn-round">
+                    </form>
+                </div>
+        </div>
+
+
+                <!-- /.container-fluid -->
+                </div>
+            </div>
+            <!-- End of Main Content -->
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+    <!-- Page level plugins -->
+
+
+    <!-- Page level custom scripts -->
+
+
+</body>
+
+</html>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+	<!-- Atlantis DEMO methods, don't include it in your project! -->
+	<script src="/static/assets/js/setting-demo.js"></script>
+	<script src="/static/assets/js/demo.js"></script>
+
+
+{% endblock javascripts %}
