@@ -31,14 +31,11 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Ownership Denominators</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Ownership Tracker</h1>
 
 
                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <form method="post">
-                                {% csrf_token %}
-                            <button style="margin:5px" type="submit" name="run_script" class="btn btn-secondary">Run Update</button></form>
-                            <a href="new-position"><button style="margin:5px" type="button" class="btn btn-secondary">New Position</button></a>
+                            <a href="/new-agm"><button style="margin:5px" type="button" class="btn btn-secondary">New Position</button></a>
                         </div>
 
                     </div>
@@ -46,12 +43,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <p class="mb-4">The below table shows all of the current Denominator Data held on the platform</a>.</p>
+                    <p class="mb-4">The below table tracks all of our AGM data</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Denominator Data</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">AGM Data</h6>
 
                         </div>
 
@@ -60,27 +57,25 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Codename</th>
                                             <th>Ticker</th>
-                                            <th>Company Name</th>
-                                            <th>Country</th>
-                                            <th>Indice</th>
-                                            <th>Shares Issued</th>
-                                            <th>Shares Outstanding</th>
-                                            <th>Treasury Shares</th>
+                                            <th>Fund</th>
+                                            <th>Position Name</th>
+                                            <th>Record Date</th>
+                                            <th>AGM Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% for position in positions %}
+                                    {% for agm in agms %}
                                     <tr>
-                                        <th>{{ position.ticker }}</th>
-                                        <th>{{ position.company_name }}</th>
-                                        <th>{{ position.country }}</th>
-                                        <th>{{ position.indice }}</th>
-                                        <th>{{ position.shares_issued|floatformat:0|intcomma }}</th>
-                                        <th>{{ position.shares_outstanding|floatformat:0|intcomma }}</th>
-                                        <th>{{ position.treasury_shares|floatformat:0|intcomma }}</th>
-                                        <td><a href="{% url 'Delete_Position' position.ticker %}" class="btn btn-outline-danger btn-round">Delete</a></td>
+                                        <th>{{ agm.codename }}</th>
+                                        <th>{{ agm.ticker }}</th>
+                                        <th>{{ agm.fund }}</th>
+                                        <th>{{ agm.position_name }}</th>
+                                        <th>{{ agm.agm_record }}</th>
+                                        <th>{{ agm.agm_date }}</th>
+                                        <td><a href="{% url 'delete_agm' agm.codename %}" class="btn btn-outline-danger btn-round">Delete</a></td>
                                     </tr>
                                     {% endfor %}
                                     </tbody>

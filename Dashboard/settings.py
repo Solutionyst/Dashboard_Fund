@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'agm_tracker',
+    'csa_report',
+    'expense_report'
 ]
 
 MIDDLEWARE = [
